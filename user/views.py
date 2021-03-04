@@ -1,26 +1,27 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.urls import reverse
+from django.views import generic
 
 from .models import User
 
 
-def index(request):
-    users_list = User.objects.all()
-    context = {
-        'users_list': users_list,
-    }
-    return render(request, 'user/index.html', context)
+class IndexView(generic.ListView):
+    template_name = 'user/index.html'
+    context_object_name = 'users_list'
+
+    def get_queryset(self):
+        return User.objects.all()
 
 
-def account(request, user_id):
-    user = get_object_or_404(User, id=user_id)
-    return render(request, 'user/account.html', {'user': user})
+class AccountView(generic.DetailView):
+    model = User
+    template_name = 'user/account.html'
 
 
 def update_password(request, user_id):
-    user = get_object_or_404(User, id=user_id)
+    user = get_object_or_404(User, pk=user_id)
     try:
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
