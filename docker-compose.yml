@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  penpiratedb:
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: 'penpiratedb'
+      MYSQL_USER: 'penpirate'
+      MYSQL_PASSWORD: 'PenPirate123!'
+      MYSQL_ROOT_PASSWORD: 'PenPirate123!'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - penpiratedb:/var/lib/mysql
+
+volumes:
+  penpiratedb:
