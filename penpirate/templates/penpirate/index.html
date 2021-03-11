@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<h1>PenPirate</h1>
+<p>
+    This website is still work in progress
+</p>
+
+<img src="{% static 'img/wip.gif' %}" alt="wip"/>
+
+<p>
+    DEBUG:
+    <br/>
+    <a href="{% url 'user:index' %}">See all users</a>
+</p>

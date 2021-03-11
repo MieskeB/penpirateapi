@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from . import views
+
+app_name = 'penpirate'
 urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
     path('user/', include('user.urls')),
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
