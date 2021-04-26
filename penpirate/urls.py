@@ -23,6 +23,7 @@ app_name = 'penpirate'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('user/', include('user.urls')),
+    path('tool/', include('tool.urls')),
     path('admin/', admin.site.urls),
 ]
 

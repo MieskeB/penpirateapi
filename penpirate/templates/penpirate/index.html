@@ -2,15 +2,52 @@
 
 <link rel="stylesheet" href="{% static 'style.css' %}">
 
-<h1>PenPirate</h1>
-<p>
-    This website is still work in progress
-</p>
 
-<img src="{% static 'img/wip.gif' %}" alt="wip"/>
+<header>
+    <div class="title">
+        PenPirate
+    </div>
+    <div class="menu">
+        <div class="item">
+            <a href="{% url 'index' %}">
+                Home
+            </a>
+        </div>
+        <div class="item">
+            <a href="{% url 'tool:index' %}">
+                Creator
+            </a>
+        </div>
+        <div class="item">
+            <a href="https://github.com/MieskeB/penpirateapi" target="_blank">
+                Source
+            </a>
+        </div>
 
-<p>
-    DEBUG:
-    <br/>
-    <a href="{% url 'user:index' %}">See all users</a>
-</p>
+        <div class="item right">
+            <a href="{% url 'user:login' %}">
+                Login
+            </a>
+        </div>
+        <div class="item right">
+            <a href="{% url 'user:register' %}">
+                Register
+            </a>
+        </div>
+        <div class="item right">
+            <a href="{% url 'user:index' %}">
+                DEBUG: USERS
+            </a>
+        </div>
+    </div>
+</header>
+<main>
+    <p>
+        This website is still work in progress
+    </p>
+
+    <img src="{% static 'img/wip.gif' %}" alt="wip"/>
+</main>
+<footer>
+    PenPirate @ 2021
+</footer>

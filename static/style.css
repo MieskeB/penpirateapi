@@ -1,5 +1,49 @@
-* {
-    margin: auto;
-    width: 80%;
-    padding: 10px;
+html {
+}
+
+html > * {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: lightgreen;
+    font-size: 25px;
+    padding: 30px 1vw;
+    margin-bottom: 5px;
+}
+
+header > .title {
+    font-size: 40px;
+    font-weight: bold;
+    padding-right: 5vw;
+}
+
+header > .menu {
+    display: flex;
+}
+
+header > .menu > .item {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+main {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    background-color: sandybrown;
+    padding: 30px 1vw;
+    margin-top: auto;
 }
