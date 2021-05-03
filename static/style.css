@@ -1,22 +1,40 @@
-html {
+@font-face {
+    font-family: 'hackerchaos';
+    src: url("/static/hackerchaos.otf");
 }
 
-html > * {
+* {
     margin: 0;
     padding: 0;
+    font-family: hackerchaos, fantasy;
+}
+
+a {
+    text-decoration: none;
+    color: #20c20e;
+}
+
+h1 {
+    font-size: 55px;
+}
+
+html {
+    background-color: #252525;
+    color: #20c20e;
 }
 
 header {
+    height: 5vh;
     display: flex;
     align-items: center;
-    background-color: lightgreen;
-    font-size: 25px;
+    background-color: #3a3a3a;
+    font-size: 35px;
     padding: 30px 1vw;
-    margin-bottom: 5px;
+    box-shadow: 0 0 15px 15px #3a3a3a;
 }
 
-header > .title {
-    font-size: 40px;
+header > h1 {
+    font-size: 55px;
     font-weight: bold;
     padding-right: 5vw;
 }
@@ -31,19 +49,50 @@ header > .menu > .item {
 }
 
 main {
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin: 5vh 10vw;
+    color: white;
+    font-size: 29px;
 }
 
-a {
+.home-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.home-content > * {
+    margin-bottom: 20px;
+}
+
+main a {
+    background-color: #1d1d1d;
+    border: none;
+    border-radius: 10px;
+    padding: 30px 64px;
+    text-align: center;
     text-decoration: none;
-    color: black;
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+    width: 20vw;
+    color: white;
+}
+
+main a:hover {
+    transform: translate(-7px, -7px);
+    box-shadow: 13px 13px 5px #141414b0;
+    border: 1px solid #505050;
 }
 
 footer {
+    box-shadow: 0 0 15px 15px #3a3a3a;
+    height: 5vh;
     display: flex;
     align-items: center;
-    background-color: sandybrown;
+    background-color: #3a3a3a;
     padding: 30px 1vw;
     margin-top: auto;
+    font-size: 20px;
 }

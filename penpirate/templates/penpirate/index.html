@@ -1,53 +1,9 @@
-{% load static %}
+{% extends "penpirate/base.html" %}
 
-<link rel="stylesheet" href="{% static 'style.css' %}">
-
-
-<header>
-    <div class="title">
-        PenPirate
+{% block content %}
+    <div class="home-content">
+        <h1>PenPirate</h1>
+        <a>New to cyber security? Start tutorial here</a>
+        <a href="{% url 'tool:index' %}">Start building your own tool</a>
     </div>
-    <div class="menu">
-        <div class="item">
-            <a href="{% url 'index' %}">
-                Home
-            </a>
-        </div>
-        <div class="item">
-            <a href="{% url 'tool:index' %}">
-                Creator
-            </a>
-        </div>
-        <div class="item">
-            <a href="https://github.com/MieskeB/penpirateapi" target="_blank">
-                Source
-            </a>
-        </div>
-
-        <div class="item right">
-            <a href="{% url 'user:login' %}">
-                Login
-            </a>
-        </div>
-        <div class="item right">
-            <a href="{% url 'user:register' %}">
-                Register
-            </a>
-        </div>
-        <div class="item right">
-            <a href="{% url 'user:index' %}">
-                DEBUG: USERS
-            </a>
-        </div>
-    </div>
-</header>
-<main>
-    <p>
-        This website is still work in progress
-    </p>
-
-    <img src="{% static 'img/wip.gif' %}" alt="wip"/>
-</main>
-<footer>
-    PenPirate @ 2021
-</footer>
+{% endblock %}
