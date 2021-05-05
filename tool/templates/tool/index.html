@@ -8,9 +8,10 @@
         <div class="tool-sidebar">
             <ul>
                 {% for file in files %}
-                    <li><a style="{% if file.id == selectedFile.id %}active{% endif %}" href="{% url 'tool:index' %}">{{ file.name }}</a></li>
+                    <li><a style="{% if file.id == selectedFile.id %}active{% endif %}"
+                           href="{% url 'tool:index' %}">{{ file.name }}</a></li>
                 {% endfor %}
-{#                <li><a href="{% url 'tool:index' file.id %}">{{ tool.file_set.all[0].name }}</a></li>#}
+                {#                <li><a href="{% url 'tool:index' file.id %}">{{ tool.file_set.all[0].name }}</a></li>#}
             </ul>
         </div>
         <div class="tool-code">
