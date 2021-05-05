@@ -1,41 +1,67 @@
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.urls import reverse
-from django.views import generic
-
-from .models import User
 
 
-class IndexView(generic.ListView):
-    template_name = 'user/index.html'
-    context_object_name = 'users_list'
-
-    def get_queryset(self):
-        return User.objects.all()
+def account(request):
+    return render(request, 'user/account.html')
 
 
-class AccountView(generic.DetailView):
-    model = User
-    template_name = 'user/account.html'
+def loginview(request):
+    return render(request, 'user/login.html')
 
 
-def update_password(request, user_id):
-    user = get_object_or_404(User, pk=user_id)
+def loginsend(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return HttpResponseRedirect(reverse('user:account'))
+    else:
+        return HttpResponseRedirect(reverse('user:login'))
+
+
+def registerview(request):
+    return render(request, 'user/register.html')
+
+
+def registersend(request):
+    username = request.POST['username']
+    email = request.POST['email']
+    password = request.POST['password']
+    user = User.objects.create_user(username=username, email=email, password=password)
+    user.save()
+
+    login(request, user)
+
+    return HttpResponseRedirect(reverse('user:account'))
+
+
+@login_required
+def update_password(request):
     try:
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
-        if (password != confirm_password):
+        if password != confirm_password:
             return render(request, 'user/account.html', {
-                'user': user,
                 'error_message': 'password and confirmed password do not match',
             })
     except (KeyError, User.DoesNotExist):
         return render(request, 'user/account.html', {
-            'user': user,
             'error_message': 'Something went wrong',
         })
     else:
-        user.password = password
-        user.save()
-        return HttpResponseRedirect(reverse('user:account', args=(user.id,)))
+        u = request.user
+        u.set_password(password)
+        u.save()
+        return HttpResponseRedirect(reverse('user:account'))
+
+
+@login_required
+def logoutsend(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('user:account'))

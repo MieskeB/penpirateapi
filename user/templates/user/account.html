@@ -1,28 +1,32 @@
 {% extends "penpirate/base.html" %}
 
 {% block content %}
-    <h1>{{ user }}</h1>
 
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% if error_message != None %}<p>{{ error_message }}</p>{% endif %}
 
-    <p>
-        You have user id {{ user.id }} and your password is {{ user.password }}
-    </p>
+    {% if user.id == None %}
+        <a href="{% url 'user:login' %}">
+            Login
+        </a>
+        <a href="{% url 'user:register' %}">
+            Register
+        </a>
+    {% else %}
+        <h1>Welcome {{ user }}</h1>
 
-    <form action="{% url 'user:update_password' user.id %}" method="post">
-        {% csrf_token %}
-        <p>
-            <label for="password">Password:</label><br/>
-            <input type="password" name="password" id="password" placeholder="password">
-        </p>
-        <p>
-            <label for="confirm_password">Confirm password:</label><br/>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password">
-        </p>
-        <input type="submit" value="Change!">
-    </form>
+        <a href="{% url 'user:logout' %}">Log out</a>
 
-    <p>
-        <a href="{% url 'user:index' %}">Go back</a>
-    </p>
+        <form action="{% url 'user:update_password' %}" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="password">Password:</label><br/>
+                <input type="password" name="password" id="password" placeholder="password">
+            </p>
+            <p>
+                <label for="confirm_password">Confirm password:</label><br/>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password">
+            </p>
+            <input type="submit" value="Change!">
+        </form>
+    {% endif %}
 {% endblock %}

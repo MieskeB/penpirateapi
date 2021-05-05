@@ -1,0 +1,22 @@
+{% extends "penpirate/base.html" %}
+
+{% block content %}
+    <h1>
+        Login
+    </h1>
+    {% if message != None %}
+        {{ message }}
+    {% endif %}
+    <form action="{% url 'user:login_send' %}" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="username">Username:</label><br/>
+            <input type="text" name="username" id="username" placeholder="username">
+        </p>
+        <p>
+            <label for="password">Password:</label><br/>
+            <input type="password" name="password" id="password" placeholder="password">
+        </p>
+        <input type="submit" value="Log in">
+    </form>
+{% endblock %}
