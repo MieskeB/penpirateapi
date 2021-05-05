@@ -2,31 +2,36 @@
 
 {% block content %}
 
-    {% if error_message != None %}<p>{{ error_message }}</p>{% endif %}
+    <div class="user-content">
 
-    {% if user.id == None %}
-        <a href="{% url 'user:login' %}">
-            Login
-        </a>
-        <a href="{% url 'user:register' %}">
-            Register
-        </a>
-    {% else %}
-        <h1>Welcome {{ user }}</h1>
+        {% if error_message != None %}<p>{{ error_message }}</p>{% endif %}
 
-        <a href="{% url 'user:logout' %}">Log out</a>
+        {% if user.id == None %}
+            <a href="{% url 'user:login' %}">
+                Login
+            </a>
+            <a href="{% url 'user:register' %}">
+                Register
+            </a>
+        {% else %}
+            <h1>Welcome {{ user }}</h1>
 
-        <form action="{% url 'user:update_password' %}" method="post">
-            {% csrf_token %}
-            <p>
-                <label for="password">Password:</label><br/>
-                <input type="password" name="password" id="password" placeholder="password">
-            </p>
-            <p>
-                <label for="confirm_password">Confirm password:</label><br/>
-                <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password">
-            </p>
-            <input type="submit" value="Change!">
-        </form>
-    {% endif %}
+            <a href="{% url 'user:logout' %}">Log out</a>
+
+            {% if user.is_staff %}<a href="{% url 'admin:index' %}">Admin page</a>{% endif %}
+
+            <form action="{% url 'user:update_password' %}" method="post">
+                {% csrf_token %}
+                <p>
+                    <label for="password">Password:</label><br/>
+                    <input type="password" name="password" id="password" placeholder="password">
+                </p>
+                <p>
+                    <label for="confirm_password">Confirm password:</label><br/>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password">
+                </p>
+                <input type="submit" value="Change!">
+            </form>
+        {% endif %}
+    </div>
 {% endblock %}

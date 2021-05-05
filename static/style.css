@@ -26,18 +26,21 @@ input {
     font-size: 20px;
 }
 
-textarea {
+textarea, input {
     background-color: #1d1d1d;
     color: white;
     font-size: 25px;
-    width: 100%;
-    height: 100%;
     font-family: sans-serif;
     border: none;
 }
 
-textarea:focus {
+textarea:focus, input {
     outline: none;
+}
+
+.tool-content textarea {
+    width: 100%;
+    height: 100%;
 }
 
 html {
@@ -116,7 +119,7 @@ main a {
     color: white;
 }
 
-.home-content a {
+.home-content a, .user-content a, .user-content input[type=submit] {
     border-radius: 10px;
     padding: 30px 64px;
     display: inline-block;
@@ -126,7 +129,7 @@ main a {
     border: none;
 }
 
-.home-content a:hover {
+.home-content a:hover, .user-content a:hover, .user-content input[type=submit]:hover {
     transform: translate(-7px, -7px);
     box-shadow: 13px 13px 5px #141414b0;
     border: 1px solid #505050;
@@ -146,6 +149,11 @@ main a {
 
 .tool-content .active {
     color: #20c20e;
+}
+
+.user-content > * > * {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 footer {

@@ -24,7 +24,7 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('user/', include('user.urls')),
     path('tool/', include('tool.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
