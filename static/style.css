@@ -6,7 +6,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: hackerchaos, fantasy;
+    font-family: hackerchaos, sans-serif;
 }
 
 a {
@@ -14,8 +14,26 @@ a {
     color: #20c20e;
 }
 
+ul {
+    list-style-type: none;
+}
+
 h1 {
     font-size: 55px;
+}
+
+textarea {
+    background-color: #1d1d1d;
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    border: none;
+}
+
+textarea:focus {
+    outline: none;
 }
 
 html {
@@ -66,24 +84,59 @@ main {
     margin-bottom: 20px;
 }
 
+.tool-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #1d1d1d;
+    box-shadow: 13px 13px 5px #141414b0;
+    border-radius: 10px;
+    height: 60vh;
+}
+
+.tool-content > .tool-sidebar {
+    flex-grow: 1;
+    border-right: 5px dotted #252525;
+}
+
+.tool-content > .tool-code {
+    flex-grow: 3;
+    margin: 20px;
+    padding: 15px;
+}
+
 main a {
     background-color: #1d1d1d;
-    border: none;
+    text-align: center;
+    justify-content: center;
+    color: white;
+}
+
+.home-content a {
     border-radius: 10px;
     padding: 30px 64px;
-    text-align: center;
-    text-decoration: none;
     display: inline-block;
     cursor: pointer;
     margin: 10px;
     width: 20vw;
-    color: white;
+    border: none;
 }
 
-main a:hover {
+.home-content a:hover {
     transform: translate(-7px, -7px);
     box-shadow: 13px 13px 5px #141414b0;
     border: 1px solid #505050;
+}
+
+.tool-content a {
+    width: 100%;
+    height: 10vh;
+    display: inline-block;
+    border-bottom: 5px dotted #252525;
+}
+
+.tool-content a:hover {
+    border-bottom: 5px solid #252525;
 }
 
 footer {

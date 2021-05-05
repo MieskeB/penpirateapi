@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'penpirate.apps.PenpirateConfig',
     'user.apps.UserConfig',
+    'tool.apps.ToolConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

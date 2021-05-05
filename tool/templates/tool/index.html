@@ -1,0 +1,22 @@
+{% extends "penpirate/base.html" %}
+
+{% block content %}
+    <h1>
+        {{ tool.name }}
+    </h1>
+    <div class="tool-content">
+        <div class="tool-sidebar">
+            <ul>
+                {% for file in files %}
+                    <li><a href="{% url 'tool:index' %}">{{ file.name }}</a></li>
+                {% endfor %}
+{#                <li><a href="{% url 'tool:index' file.id %}">{{ tool.file_set.all[0].name }}</a></li>#}
+            </ul>
+        </div>
+        <div class="tool-code">
+            <label>
+                <textarea placeholder="Code here...">{{ selectedFile.code }}</textarea>
+            </label>
+        </div>
+    </div>
+{% endblock %}
