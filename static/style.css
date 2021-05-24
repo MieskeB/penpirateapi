@@ -119,7 +119,7 @@ main a {
     color: white;
 }
 
-.home-content a, .user-content a, .user-content input[type=submit] {
+.home-content a, .user-content a, .tool-buttons a, .user-content input[type=submit] {
     border-radius: 10px;
     padding: 30px 64px;
     display: inline-block;
@@ -129,7 +129,7 @@ main a {
     border: none;
 }
 
-.home-content a:hover, .user-content a:hover, .user-content input[type=submit]:hover {
+.home-content a:hover, .user-content a:hover, .tool-buttons a:hover, .user-content input[type=submit]:hover {
     transform: translate(-7px, -7px);
     box-shadow: 13px 13px 5px #141414b0;
     border: 1px solid #505050;

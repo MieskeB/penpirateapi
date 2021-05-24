@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'tool'
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('generate', views.index, name='generate')
 ]
