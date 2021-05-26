@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'penpirate.apps.PenpirateConfig',
     'user.apps.UserConfig',
     'tool.apps.ToolConfig',
+    'tutorial.apps.TutorialConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

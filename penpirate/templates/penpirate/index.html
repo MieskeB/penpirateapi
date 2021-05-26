@@ -3,7 +3,7 @@
 {% block content %}
     <div class="home-content">
         <h1>PenPirate</h1>
-        <a>New to cyber security? Start tutorial here</a>
+        <a href="{% url 'tutorial:index' %}">New to cyber security? Start tutorial here</a>
         <a href="{% url 'tool:index' %}">Start building your own tool</a>
     </div>
 {% endblock %}

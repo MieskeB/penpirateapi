@@ -1,0 +1,17 @@
+{% extends "penpirate/base.html" %}
+
+{% block content %}
+
+    <div class="tutorial-content">
+        <h1>
+            {% block tutorial-title %}{% endblock %}
+        </h1>
+        <a href="{% url 'tutorial:monitoring' %}">Monitoring</a>
+        <a href="{% url 'tutorial:pentesting' %}">Pentesting</a>
+        <a href="{% url 'tutorial:riskanalysis' %}">Risk analysis</a>
+
+        <div class="tutorial-explanation">
+            {% block tutorial-content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
